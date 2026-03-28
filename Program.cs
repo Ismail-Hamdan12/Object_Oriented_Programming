@@ -1,25 +1,39 @@
-﻿using Abstraction_Interface.Abstraction;
-using Abstraction_Interface.IInterface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Abstraction_Interface
+﻿using System;
+namespace Abstractions
 {
-    internal class Program
+    class Program
     {
         static void Main(string[] args)
         {
-           /* SubAbst2 s = new SubAbst2();
-            s.Show();
-            SubAbst k = new SubAbst();
-            k.Show();*/
-            Demo d = new Demo();
-            d.Show();
-            MyClass m = new MyClass();
-            m.Show();
+            Abstraction_Ex account = new Abstraction_Ex();
+            account.Deposit(1500);
+            Console.WriteLine("Current Balance: " + account.GetBalance());
+            account.Deposit(2500);
+            Console.WriteLine("Current Balance: " + account.GetBalance());
+
+            Console.WriteLine("=============================================");
+            Data_Hide_Ex dataHideExample = new Data_Hide_Ex();
+            dataHideExample.hide();
+            dataHideExample.sound();
+
+            Console.WriteLine("=============================================");
+            Drawable d;
+            d = new Circle();
+            d.draw();
+            d = new Inter_face();
+            d.draw();
+
+            Console.WriteLine("=============================================");
+            Logger logger = new Default_Inter();
+            logger.Log("This is a log message.");
+            logger.Loginfo("This is an informational message.");
+
+            Console.WriteLine("===============================================");
+            Flying f = new Multiple_Interf();
+            f.Move();
+            f.Fly();
+            f.Stop();
+
         }
     }
 }
